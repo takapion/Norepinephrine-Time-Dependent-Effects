@@ -27,6 +27,7 @@ df_post1 <- complete_df %>%
   mutate(invasive_mbp_lpf_diff = invasive_mbp_lpf - invasive_mbp_time0_value) %>%
   inner_join(mbp_pre_wide %>% select(-invasive_mbp_lpf_offset_0), by = "icu_stay_id")
 
+df_post1$icu_stay_id %>% unique %>% length
 
 df_pre0 <- df_base %>%
   select(-gamma) %>% 
