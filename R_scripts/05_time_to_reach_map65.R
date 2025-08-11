@@ -19,7 +19,9 @@ df_post2 <- complete_df %>%
          hr_pre, invasive_mbp_time0_value, gamma) %>%
   mutate(invasive_mbp_lpf_diff = invasive_mbp_lpf - invasive_mbp_time0_value) 
 
-# fit GAM model
+df_post2$icu_stay_id %>% unique %>% length
+
+# Fit GAM model
 gam_time_to_reach_65 <- gam(invasive_mbp_lpf_diff ~ s(offset) + female + age +
                               sepsis + first_sofa + on_vent + past_vent +
                               ph + bicarbonate + base_excess + pco2 + lactate +

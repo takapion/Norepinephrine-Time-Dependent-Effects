@@ -28,6 +28,7 @@ first_mbp <- df %>%
 # Prepare diagnosis data by selecting sepsis information
 df_diagnosis <- df_diagnosis_original %>% select(icu_stay_id, sepsis)
 df_diagnosis$sepsis[is.na(df_diagnosis$sepsis)] <- 0
+df_diagnosis$icu_stay_id %>% unique %>% length
 
 df_base_before_naomit <- df_base_original %>% select(-sepsis) %>%
   inner_join(first_mbp, by = 'icu_stay_id') %>%

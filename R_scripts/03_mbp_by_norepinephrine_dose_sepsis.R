@@ -41,6 +41,8 @@ df_pre0 <- df_base %>%
 df_post_shock <- df_post1 %>%
   filter(sepsis == 1)
 
+df_post_shock$icu_stay_id %>% unique %>% length
+
 # Fit a GAM model including past 5 MBP points and time 0 value
 gam_model <- gam(invasive_mbp_lpf_diff ~ s(offset) + female + age +
                    first_sofa + on_vent + past_vent +
