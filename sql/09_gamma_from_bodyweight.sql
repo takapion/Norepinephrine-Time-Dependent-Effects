@@ -1,6 +1,6 @@
 with
         first_bodyweight_table as (
-            select icu_stay_id, min(body_weight) as first_bodyweight
+            select icu_stay_id, min_by(body_weight,time) as first_bodyweight
             from `medicu-beta`.`snapshots_one_icu`.`body_weight_measurements_20250407`
             group by icu_stay_id
         ),

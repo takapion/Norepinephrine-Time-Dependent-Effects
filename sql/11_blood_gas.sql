@@ -12,6 +12,7 @@ with
                 `medicu-production`.`research_vasopressin_acidosis_2024`.`301_noradrenaline_min_start` using (icu_stay_id)
             where
                 field_name in ('ph', 'bicarbonate', 'base_excess', 'pco2', 'lactate')
+                and sample_type = "arterial_blood_gas"
         ),
         pivoted as (
             select
